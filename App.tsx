@@ -133,7 +133,7 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <header className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20">
+      <header className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
         {/* Background Effects */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-20 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[128px]"></div>
@@ -290,6 +290,7 @@ const App: React.FC = () => {
                     <li key={i}>{topic}</li>
                   ))}
                 </ul>
+                <span className="block text-sm text-purple-400 font-semibold mt-4">E muito mais...</span>
               </AccordionItem>
             </div>
           ))}
