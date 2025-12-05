@@ -124,14 +124,12 @@ const App: React.FC = () => {
             <span>Réssonancia</span>
           </div>
           <div className={`${showStickyCTA ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300`}>
-             <a 
-                href={CHECKOUT_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+             <Button
+                onClick={scrollToOffer}
                 className="bg-green-500 hover:bg-green-400 text-slate-900 text-sm font-bold py-2 px-6 rounded-full shadow-lg transition-colors"
              >
                Quero Minha Réssonancia
-             </a>
+             </Button>
           </div>
         </div>
       </nav>
@@ -171,7 +169,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <Button as="a" href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="text-xl px-10 py-5 shadow-purple-500/25 shadow-xl">
+            <Button onClick={scrollToOffer} className="text-xl px-10 py-5 shadow-purple-500/25 shadow-xl">
               Quero aprender a atrair fãs com Réssonancia por R$ 97
             </Button>
             <p className="text-slate-400 text-sm">
@@ -508,7 +506,7 @@ const App: React.FC = () => {
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
             Por R$ 97, você tem acesso a um passo a passo direto, feito por um músico que entende de tráfego.
           </p>
-          <Button as="a" href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="px-12 py-5 text-lg">
+          <Button onClick={scrollToOffer} className="px-12 py-5 text-lg">
             Quero transformar anúncios em fãs e shows
           </Button>
           <p className="mt-12 text-slate-600 text-sm">
