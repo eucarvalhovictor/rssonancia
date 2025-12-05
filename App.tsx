@@ -25,6 +25,8 @@ import { Button } from './components/Button';
 import { Section } from './components/Section';
 import { AccordionItem } from './components/Accordion';
 
+const CHECKOUT_LINK = "https://checkout.eusouthiagocesar.com.br/O74033588";
+
 const App: React.FC = () => {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
@@ -122,12 +124,14 @@ const App: React.FC = () => {
             <span>Réssonancia</span>
           </div>
           <div className={`${showStickyCTA ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'} transition-all duration-300`}>
-             <button 
-                onClick={scrollToOffer}
+             <a 
+                href={CHECKOUT_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-400 text-slate-900 text-sm font-bold py-2 px-6 rounded-full shadow-lg transition-colors"
              >
                Quero Minha Réssonancia
-             </button>
+             </a>
           </div>
         </div>
       </nav>
@@ -167,7 +171,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <Button onClick={scrollToOffer} className="text-xl px-10 py-5 shadow-purple-500/25 shadow-xl">
+            <Button as="a" href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="text-xl px-10 py-5 shadow-purple-500/25 shadow-xl">
               Quero aprender a atrair fãs com Réssonancia por R$ 97
             </Button>
             <p className="text-slate-400 text-sm">
@@ -445,7 +449,7 @@ const App: React.FC = () => {
             <p className="text-green-400 font-medium">À vista ou parcelado no cartão</p>
           </div>
 
-          <Button fullWidth className="text-xl py-6 mb-6 bg-green-600 hover:bg-green-500 border-green-500/30 shadow-green-900/50">
+          <Button as="a" href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" fullWidth className="text-xl py-6 mb-6 bg-green-600 hover:bg-green-500 border-green-500/30 shadow-green-900/50">
             QUERO MINHA RÉSSONANCIA AGORA!
           </Button>
 
@@ -504,7 +508,7 @@ const App: React.FC = () => {
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
             Por R$ 97, você tem acesso a um passo a passo direto, feito por um músico que entende de tráfego.
           </p>
-          <Button onClick={scrollToOffer} className="px-12 py-5 text-lg">
+          <Button as="a" href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="px-12 py-5 text-lg">
             Quero transformar anúncios em fãs e shows
           </Button>
           <p className="mt-12 text-slate-600 text-sm">
