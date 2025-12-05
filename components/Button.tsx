@@ -1,20 +1,32 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CommonButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   fullWidth?: boolean;
   icon?: boolean;
   children: React.ReactNode;
+  className?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  variant = 'primary', 
-  fullWidth = false, 
+type ButtonAsButtonProps = CommonButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  as?: 'button';
+};
+
+type ButtonAsAnchorProps = CommonButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  as: 'a';
+};
+
+type ButtonProps = ButtonAsButtonProps | ButtonAsAnchorProps;
+
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  fullWidth = false,
   icon = true,
-  children, 
+  children,
   className = '',
-  ...props 
+  as: Component = 'button',
+  ...props
 }) => {
   const baseStyles = "inline-flex items-center justify-center font-bold transition-all duration-300 rounded-lg py-4 px-8 text-lg transform hover:-translate-y-1 hover:shadow-lg active:translate-y-0";
   
@@ -27,12 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
   const widthClass = fullWidth ? "w-full" : "";
 
   return (
-    <button 
-      className={`${baseStyles} ${variants[variant]} ${widthClass} ${className}`} 
-      {...props}
+    <Component
+      className={`${baseStyles} ${variants[variant]} ${widthClass} ${className}`}
+      {...props as any}
     >
       {children}
       {icon && <ArrowRight className="ml-2 w-5 h-5" />}
-    </button>
+    </Component>
   );
 };
